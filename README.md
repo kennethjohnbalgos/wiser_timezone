@@ -34,11 +34,25 @@ Generate a migration for wiser_timezone and run the database migration (in your 
 
 ### Javascript
 
-Include the _wiser_timezone.css_ javascript into your `app/assets/javascripts/application.js`:
+Include the _wiser_timezone_ javascript into your `app/assets/javascripts/application.js`:
 
 	//= require jquery
 	//= require wiser_timezone
+	
+Reload using the _wiser_timezone_reload_ function from your javascript `ready` event:
 
+	$(document).ready(function(){
+	  wiser_timezone_reload();
+	})
+
+### Turbolinks (optional)
+
+Reload using the _wiser_timezone_reload_ function from your javascript `page:load` event:
+
+	$(document).on("page:load", function(){
+	  wiser_timezone_reload();
+	})
+	
 ### Stylesheet
 
 Include the _wiser_timezone_ stylesheet into your `app/assets/stylesheets/application.css`:

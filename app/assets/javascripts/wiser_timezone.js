@@ -1,4 +1,9 @@
 $(document).ready(function(){
+  wiser_timezone_reload()
+});
+
+
+function wiser_timezone_reload(){
   if($('#wiser_timezone_container').is(':visible')){
     // Browser
     browser_time = new Date();
@@ -15,12 +20,4 @@ $(document).ready(function(){
       $('#wiser_timezone_container').hide()
     }
   }
-
-  function zerofill(number, length){
-    var str = "" + number
-    while(str.length < length){
-      str = '0' + str
-    }
-    return str
-  }
-});
+}

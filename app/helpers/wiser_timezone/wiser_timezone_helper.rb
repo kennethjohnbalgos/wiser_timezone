@@ -15,7 +15,7 @@ module WiserTimezone
     end
 
     def wiser_timezone_initialize
-      link = link_to('Click Here', set_timezone_path, :data => {:offset => "#{offset}"}, :id => 'wiser_timezone_link')
+      link = link_to('Click Here', set_timezone_path, :method => 'post', :data => {:offset => "#{offset}"}, :id => 'wiser_timezone_link')
       if offset.present?
         msg = "Your computer's timezone does not appear to match the current setting #{current_timezone}. #{link} to update the timezone."
       else
@@ -29,7 +29,7 @@ module WiserTimezone
     private
 
     def offset
-      if current_user.present?
+      if current_user.present? && current_user.try(:timezone).present?
         offset = current_user.timezone
       elsif cookies[:wiser_timezone_offset].present?
         offset = cookies[:wiser_timezone_offset]
