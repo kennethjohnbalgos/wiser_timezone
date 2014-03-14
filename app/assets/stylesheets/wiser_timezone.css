@@ -1,0 +1,29 @@
+#wiser_timezone_container {
+  /* Position */
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* Layout */
+  width: 100%;
+}
+#wiser_timezone_container #wiser_timezone_space {
+  /* Layout */
+  padding: 10px 15px;
+  /* Font */
+  font-family: Arial, 'Liberation Sans', 'DejaVu Sans', sans-serif;
+  color: #555;
+  /* Border */
+  border-bottom: 1px solid #3e5e71;
+  /* Background */
+  background: #f5f9ff;
+}
+#wiser_timezone_container #wiser_timezone_space a {
+  /* Font */
+  text-decoration: none;
+  color: #6fa8c9;
+}
+#wiser_timezone_container #wiser_timezone_space a:hover {
+  /* Font */
+  text-decoration: none;
+  color: #3e5e71;
+}
