@@ -38,7 +38,7 @@ Include the `wiser_timezone` javascript into your `app/assets/javascripts/applic
 
 	//= require jquery
 	//= require wiser_timezone
-	
+
 Reload using the `wiser_timezone_reload()` function from your javascript `ready` event:
 
 	$(document).ready(function(){
@@ -52,7 +52,7 @@ Reload using the `wiser_timezone_reload()` function from your javascript `page:l
 	$(document).on("page:load", function(){
 	  wiser_timezone_reload();
 	})
-	
+
 ### Stylesheet
 
 Include the `wiser_timezone` stylesheet into your `app/assets/stylesheets/application.css`:
@@ -78,12 +78,12 @@ All dates must be printed using the custom helper `wiser_timezone()` from the `w
 You can do the normal usage:
 
 	<%= wiser_timezone(@post.created_at) %>
-	// Result: 2014-03-15 02:37:07 +0800
+	// Return: 2014-03-15 02:37:07 +0800
 
 Or even format the value:
 
 	<%= wiser_timezone(@post.created_at).strftime('%Y-%m-%d %H:%M:%S') %>
-	// Result: 2014-03-15 02:37:07
+	// Return: 2014-03-15 02:37:07
 
 ### Extra
 
@@ -91,6 +91,7 @@ You can get the current timezone using the `current_timezone` method:
 
 	My timezone is:
 	<%= current_timezone %>
+	// Return: (GMT+08:00) Beijing
 
 
 ## Contributing

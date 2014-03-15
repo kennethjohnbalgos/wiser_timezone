@@ -22,7 +22,7 @@ module WiserTimezone
         msg = "You do not have timezone in your user setting. #{link} to save your time zone."
       end
       space = "<div id='wiser_timezone_space' data-offset='#{offset}'>#{msg}</div>"
-      html = "<div id='wiser_timezone_container'>#{space}</div>"
+      html = "<div id='wiser_timezone_container' style='display:none;'>#{space}</div>"
       return html.html_safe
     end
 
