@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["kennethjohnbalgos@gmail.com"]
   spec.description   = ""
   spec.summary       = "Friendly Timezone on Steroids"
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/kennethjohnbalgos/wiser_timezone"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
