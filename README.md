@@ -34,12 +34,12 @@ Generate a migration for wiser_timezone and run the database migration (in your 
 
 ### Javascript
 
-Include the _wiser_timezone_ javascript into your `app/assets/javascripts/application.js`:
+Include the `wiser_timezone` javascript into your `app/assets/javascripts/application.js`:
 
 	//= require jquery
 	//= require wiser_timezone
 	
-Reload using the _wiser_timezone_reload_ function from your javascript `ready` event:
+Reload using the `wiser_timezone_reload()` function from your javascript `ready` event:
 
 	$(document).ready(function(){
 	  wiser_timezone_reload();
@@ -47,7 +47,7 @@ Reload using the _wiser_timezone_reload_ function from your javascript `ready` e
 
 ### Turbolinks (optional)
 
-Reload using the _wiser_timezone_reload_ function from your javascript `page:load` event:
+Reload using the `wiser_timezone_reload()` function from your javascript `page:load` event:
 
 	$(document).on("page:load", function(){
 	  wiser_timezone_reload();
@@ -55,13 +55,13 @@ Reload using the _wiser_timezone_reload_ function from your javascript `page:loa
 	
 ### Stylesheet
 
-Include the _wiser_timezone_ stylesheet into your `app/assets/stylesheets/application.css`:
+Include the `wiser_timezone` stylesheet into your `app/assets/stylesheets/application.css`:
 
 	*= require wiser_timezone
 
 ### Layout
 
-Render the _wiser_timezone_initialize_ view below the `body` of your layout file:
+Render the `wiser_timezone_initialize` view below the `body` of your layout file:
 
 	<body>
 	  <%= wiser_timezone_initialize %>
@@ -71,7 +71,7 @@ Render the _wiser_timezone_initialize_ view below the `body` of your layout file
 
 ## Usage
 
-All dates must be printed using the custom helper `wiser_timezone()` from the _wiser_timezone_.
+All dates must be printed using the custom helper `wiser_timezone()` from the `wiser_timezone`.
 
 ### Examples
 
