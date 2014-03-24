@@ -16,7 +16,7 @@ You can do normal gem installation for `wiser_timezone` from your terminal:
 
 or add this line in your Gemfile:
 
-    gem 'wiser_timezone'
+    gem 'wiser_timezone', '~> 0.1.1'
 
 Be sure to restart your application if it is already running.
 
@@ -85,6 +85,15 @@ Or even format the value:
 	<%= wiser_timezone(@post.created_at).strftime('%Y-%m-%d %H:%M:%S') %>
 	// Return: 2014-03-15 02:37:07
 
+### Expand
+
+You can use the *WiserTimezone* helpers in your controller, just include the library in your `ApplicationController`:
+
+	include WiserTimezone::WiserTimezoneHelper
+	class ApplicationController < ActionController::Base
+		# More Codes
+	end
+
 ### Extra
 
 You can get the current timezone using the `current_timezone` method:
@@ -92,6 +101,12 @@ You can get the current timezone using the `current_timezone` method:
 	My timezone is:
 	<%= current_timezone %>
 	// Return: (GMT+08:00) Beijing
+
+You can get the current timezone offset using the `current_timezone_offset` method:
+
+	My timezone is:
+	<%= current_timezone_offset %>
+	// Return: GMT+8
 
 
 ## Contributing

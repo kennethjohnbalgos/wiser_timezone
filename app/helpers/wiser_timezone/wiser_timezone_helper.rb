@@ -7,7 +7,8 @@ module WiserTimezone
 
     def current_timezone_offset
       timezone_str = current_timezone.to_s
-      return timezone_str[timezone_str.index('(')+1..-1].split(':').first()
+      offset_str = timezone_str[timezone_str.index('(')+1..-1].split(':').first()
+      return "#{offset_str[0..3]}#{offset_str[4..-1].to_i}"
     end
 
     def wiser_timezone(date)
