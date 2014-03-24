@@ -10,11 +10,12 @@
 #wiser_timezone_container #wiser_timezone_space {
   /* Layout */
   padding: 10px 15px;
+  line-height: 1.2em;
   /* Font */
   font-family: Arial, 'Liberation Sans', 'DejaVu Sans', sans-serif;
   color: #555;
   /* Border */
-  border-bottom: 1px solid #3e5e71;
+  border-bottom: 1px solid #ddd;
   /* Background */
   background: #f5f9ff;
 }
@@ -27,4 +28,7 @@
   /* Font */
   text-decoration: none;
   color: #3e5e71;
+}
+.no_wrap {
+  white-space: nowrap;
 }
