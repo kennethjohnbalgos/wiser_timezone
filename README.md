@@ -16,7 +16,7 @@ You can do normal gem installation for `wiser_timezone` from your terminal:
 
 or add this line in your Gemfile:
 
-    gem 'wiser_timezone', '~> 0.1.1'
+    gem 'wiser_timezone', '~> 0.1.2'
 
 Be sure to restart your application if it is already running.
 
@@ -73,7 +73,7 @@ Render the `wiser_timezone_initialize` view below the `body` of your layout file
 
 All dates must be printed using the custom helper `wiser_timezone()` from the `wiser_timezone`.
 
-### Examples
+### Basic Examples
 
 You can do the normal usage:
 
@@ -85,14 +85,16 @@ Or even format the value:
 	<%= wiser_timezone(@post.created_at).strftime('%Y-%m-%d %H:%M:%S') %>
 	// Return: 2014-03-15 02:37:07
 
-### Expand
+### Globalize
 
-You can use the *WiserTimezone* helpers in your controller, just include the library in your `ApplicationController`:
+Enable the *WiserTimezone* in the entire application by adding the `ensure_timezone` method as a `before_filter` of your `ApplicationController`:
 
 	include WiserTimezone::WiserTimezoneHelper
 	class ApplicationController < ActionController::Base
+		before_filter :ensure_timezone
 		# More Codes
 	end
+
 
 ### Extra
 

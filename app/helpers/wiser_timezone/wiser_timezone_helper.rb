@@ -1,6 +1,10 @@
 module WiserTimezone
   module WiserTimezoneHelper
 
+    def ensure_timezone
+      Time.zone = current_timezone
+    end
+
     def current_timezone
       return ActiveSupport::TimeZone[offset.to_i]
     end
