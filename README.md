@@ -16,7 +16,7 @@ You can do normal gem installation for `wiser_timezone` from your terminal:
 
 or add this line in your Gemfile:
 
-    gem 'wiser_timezone', '~> 0.1.2'
+    gem 'wiser_timezone', '~> 0.1.3'
 
 Be sure to restart your application if it is already running.
 
@@ -94,6 +94,13 @@ Enable the *WiserTimezone* in the entire application by adding the `ensure_timez
 		before_filter :ensure_timezone
 		# More Codes
 	end
+
+### Date Only
+
+You can convert dates to timezone without having the time, in short, date only:
+
+	<%= wiser_timezone(@post.created_at, date_only: true) %>
+	// Return: 2014-03-15 00:00:00 +0800
 
 
 ### Extra

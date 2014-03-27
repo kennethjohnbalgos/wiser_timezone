@@ -15,10 +15,14 @@ module WiserTimezone
       return "#{offset_str[0..3]}#{offset_str[4..-1].to_i}"
     end
 
-    def wiser_timezone(date)
+    def wiser_timezone(date, date_only = false)
       begin
         date_time = date.to_datetime
-        return date_time.in_time_zone(current_timezone)
+        if date_only
+          return date_time.in_time_zone(current_timezone).beginning_of_day
+        else
+          return date_time.in_time_zone(current_timezone)
+        end
       rescue
         raise "WiserTimezone can only accept date object."
       end
