@@ -12,13 +12,17 @@ module WiserTimezone
     def current_timezone_slim
       location = current_timezone.to_s.split(" ").last()
       offset = current_timezone_offset
-      return "#{offset} (#{location})"
+      return "(#{offset}) #{location}"
     end
 
     def current_timezone_offset
       timezone_str = current_timezone.to_s
       offset_str = timezone_str[timezone_str.index('(')+1..-1].split(':').first()
       return "#{offset_str[0..3]}#{offset_str[4..-1].to_i}"
+    end
+
+    def current_timezone_offset_slim
+      current_timezone_offset[3..-1]
     end
 
     def wiser_timezone(date, date_only = false)
@@ -34,9 +38,13 @@ module WiserTimezone
       end
     end
 
+    def wt(date, date_only = false)
+      wiser_timezone(date, date_only)
+    end
+
     def wiser_timezone_initialize
       set_link = link_to('click here', set_timezone_path, :id => 'wiser_timezone_link')
-      close_link = link_to('skip', set_timezone_path, :id => 'wiser_timezone_close', :remote => true)
+      close_link = link_to('skip', set_timezone_path(offset: 'skip'), :id => 'wiser_timezone_close', :remote => true)
       if offset.present?
         msg = "Your computer's timezone does not appear to match your current setting #{current_timezone_slim}, <span class='no_wrap'>#{set_link} to update the timezone to ~TZ~.</span> Otherwise, #{close_link} setting your timezone."
       else

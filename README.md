@@ -16,7 +16,7 @@ You can do normal gem installation for `wiser_timezone` from your terminal:
 
 or add this line in your Gemfile:
 
-    gem 'wiser_timezone', '~> 0.1.3'
+    gem 'wiser_timezone', '~> 0.1.4'
 
 Be sure to restart your application if it is already running.
 
@@ -71,18 +71,23 @@ Render the `wiser_timezone_initialize` view below the `body` of your layout file
 
 ## Usage
 
-All dates must be printed using the custom helper `wiser_timezone()` from the `wiser_timezone`.
+All dates must be printed using the custom helper `wiser_timezone()` or `wt()`.
 
-### Basic Examples
+### Basic Usage
 
-You can do the normal usage:
+Here's how to apply the timezone in a Date object:
 
 	<%= wiser_timezone(@post.created_at) %>
 	// Return: 2014-03-15 02:37:07 +0800
 
-Or even format the value:
+Or use the simplier `wt` method:
 
-	<%= wiser_timezone(@post.created_at).strftime('%Y-%m-%d %H:%M:%S') %>
+	<%= wt(@post.created_at) %>
+	// Return: 2014-03-15 02:37:07 +0800
+
+Then you can also format the value:
+
+	<%= wt(@post.created_at).strftime('%Y-%m-%d %H:%M:%S') %>
 	// Return: 2014-03-15 02:37:07
 
 ### Globalize
@@ -100,23 +105,40 @@ Enable the *WiserTimezone* in the entire application by adding the `ensure_timez
 You can convert dates to timezone without having the time, in short, date only:
 
 	<%= wiser_timezone(@post.created_at, date_only: true) %>
-	// Return: 2014-03-15 00:00:00 +0800
+	// Output: 2014-03-15 00:00:00 +0800
 
+
+### Reset Link
+
+You can embed a link in your app to clear or reset the current settings:
+
+	<%= link_to "Reset Timezone", set_timezone_path(offset: 'clear') %>
 
 ### Extra
 
-You can get the current timezone using the `current_timezone` method:
+You can get the current timezone in basic format using the `current_timezone` method:
 
 	My timezone is:
 	<%= current_timezone %>
-	// Return: (GMT+08:00) Beijing
+	// Output: (GMT+08:00) Beijing
 
-You can get the current timezone offset using the `current_timezone_offset` method:
+You can get the current timezone in slim format using the `current_timezone_slim` method:
+
+	My timezone is:
+	<%= current_timezone_slim %>
+	// Output: (GMT+8) Beijing
+
+You can get the current timezone offset in basic format using the `current_timezone_offset` method:
 
 	My timezone is:
 	<%= current_timezone_offset %>
-	// Return: GMT+8
+	// Output: GMT+8
 
+You can get the current timezone offset in slim format using the `current_timezone_offset` method:
+
+	My timezone is:
+	<%= current_timezone_offset_slim %>
+	// Output: +8
 
 ## Contributing
 

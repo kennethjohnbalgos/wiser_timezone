@@ -4,8 +4,15 @@ module WiserTimezone
       if params[:offset].present?
         if params[:offset] == "skip"
           cookies[:wiser_timezone_offset] = params[:offset]
-        elsif params[:offset] == "reset"
+        elsif params[:offset] == "clear"
           cookies[:wiser_timezone_offset] = nil
+          if current_user.present?
+            begin
+              current_user.update_attribute(:timezone, nil)
+            rescue; end
+          else
+            cookies[:wiser_timezone_offset] = params[:offset]
+          end
         else
           if current_user.present?
             cookies[:wiser_timezone_offset] = nil
