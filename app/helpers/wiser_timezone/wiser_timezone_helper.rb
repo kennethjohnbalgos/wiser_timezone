@@ -15,6 +15,10 @@ module WiserTimezone
       return "(#{offset}) #{location}"
     end
 
+    def current_timezone_location
+      return current_timezone.to_s.split(" ").last()
+    end
+
     def current_timezone_offset
       timezone_str = current_timezone.to_s
       offset_str = timezone_str[timezone_str.index('(')+1..-1].split(':').first()

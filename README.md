@@ -128,6 +128,12 @@ You can get the current timezone in slim format using the `current_timezone_slim
 	<%= current_timezone_slim %>
 	// Output: (GMT+8) Beijing
 
+You can get the current timezone location using the `current_timezone_location` method:
+
+	My timezone is:
+	<%= current_timezone_location %>
+	// Output: Beijing
+
 You can get the current timezone offset in basic format using the `current_timezone_offset` method:
 
 	My timezone is:
