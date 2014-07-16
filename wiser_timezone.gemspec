@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = WiserTimezone::VERSION
   spec.authors       = ["Kenneth John Balgos"]
   spec.email         = ["kennethjohnbalgos@gmail.com"]
-  spec.description   = ""
+  spec.description   = "Allow your Ruby on Rails application to handle timezone dynamically."
   spec.summary       = "Friendly Timezone on Steroids"
   spec.homepage      = "https://github.com/kennethjohnbalgos/wiser_timezone"
   spec.license       = "MIT"
