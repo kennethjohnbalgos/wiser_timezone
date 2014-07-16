@@ -4,13 +4,13 @@ module WiserTimezone
       if params[:offset].present?
         if params[:offset] == "skip"
           cookies[:wiser_timezone_offset] = params[:offset]
+        elsif params[:offset] == "reset"
+          cookies[:wiser_timezone_offset] = nil
         else
           if current_user.present?
             cookies[:wiser_timezone_offset] = nil
             begin
-              unless params[:offset] == "reset"
-                current_user.update_attribute(:timezone, params[:offset])
-              end
+              current_user.update_attribute(:timezone, params[:offset])
             rescue
               raise "You probably need to run the migration. Please review the documentation."
             end
