@@ -3,17 +3,21 @@
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 999;
+  z-index: 99999;
   /* Layout */
   width: 100%;
+  box-shadow: 0 -1px 4px 0 rgba(0, 0, 0, 0.50);
 }
 #wiser_timezone_container #wiser_timezone_space {
   /* Layout */
   padding: 10px 15px;
   line-height: 1.2em;
+  opacity: 0.95;
+  cursor: default;
   /* Font */
-  font-family: Arial, 'Liberation Sans', 'DejaVu Sans', sans-serif;
+  font-family: Lucida Sans, 'Liberation Sans', 'DejaVu Sans', sans-serif;
   color: #555;
+  font-size: 13px;
   /* Border */
   border-bottom: 1px solid #ddd;
   /* Background */

@@ -9,6 +9,12 @@ module WiserTimezone
       return ActiveSupport::TimeZone[offset.to_i]
     end
 
+    def current_timezone_slim
+      location = current_timezone.to_s.split(" ").last()
+      offset = current_timezone_offset
+      return "#{offset} (#{location})"
+    end
+
     def current_timezone_offset
       timezone_str = current_timezone.to_s
       offset_str = timezone_str[timezone_str.index('(')+1..-1].split(':').first()
@@ -29,14 +35,15 @@ module WiserTimezone
     end
 
     def wiser_timezone_initialize
-      link = link_to('Click Here', set_timezone_path, :method => 'post', :data => {:offset => "#{offset}"}, :id => 'wiser_timezone_link')
+      set_link = link_to('click here', set_timezone_path, :id => 'wiser_timezone_link')
+      close_link = link_to('skip', set_timezone_path, :id => 'wiser_timezone_close', :remote => true)
       if offset.present?
-        msg = "Your computer's timezone does not appear to match the current setting #{current_timezone}. <span class='no_wrap'>#{link} to update the timezone to ~TZ~.</span>"
+        msg = "Your computer's timezone does not appear to match your current setting #{current_timezone_slim}, <span class='no_wrap'>#{set_link} to update the timezone to ~TZ~.</span> Otherwise, #{close_link} setting your timezone."
       else
-        msg = "You do not have timezone in your user settings. <span class='no_wrap'>#{link} to set your timezone to ~TZ~.</span>"
+        msg = "You do not have timezone in your settings, <span class='no_wrap'>#{set_link} to update the timezone to ~TZ~.</span> Otherwise, #{close_link} setting your timezone."
       end
       space = "<div id='wiser_timezone_space' data-offset='#{offset}'>#{msg}</div>"
-      html = "<div id='wiser_timezone_container' style='display:block;'>#{space}</div>"
+      html = "<div id='wiser_timezone_container' style='display:none;' data-offset-cookie='#{cookies[:wiser_timezone_offset]}'>#{space}</div>"
       return html.html_safe
     end
 
