@@ -54,9 +54,9 @@ module WiserTimezone
       close_link = link_to('skip', set_timezone_path(offset: 'skip'), :id => 'wiser_timezone_close', :remote => true)
 
       if offset.present?
-        msg = "Your system's timezone does not match your current setting #{current_timezone_slim}, <span class='no_wrap'>#{set_link} to update the timezone to ~TZ~.</span>#{'<br/>' if force}Otherwise, #{close_link} setting your timezone."
+        msg = "Your system's timezone does not match your current setting #{current_timezone_slim}, <span class='no_wrap'>#{set_link}</span> to update the timezone to ~TZ~.#{'<br/>' if force}Otherwise, #{close_link} setting your timezone."
       else
-        msg = "You do not have timezone in your settings, <span class='no_wrap'>#{set_link} to update the timezone to ~TZ~.</span>#{'<br/>' if force}Otherwise, #{close_link} setting your timezone."
+        msg = "You do not have timezone in your settings, <span class='no_wrap'>#{set_link}</span> to update the timezone to ~TZ~.#{'<br/>' if force}Otherwise, #{close_link} setting your timezone."
       end
       classes = "#{'force' if force} #{'no_user' if auto_set_guest}"
       space = "<div id='wiser_timezone_space' data-offset='#{offset}'>#{msg}</div>"
