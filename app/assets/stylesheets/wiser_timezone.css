@@ -6,7 +6,29 @@
   z-index: 99999;
   /* Layout */
   width: 100%;
-  box-shadow: 0 -1px 4px 0 rgba(0, 0, 0, 0.50);
+}
+#wiser_timezone_container.force {
+  /* Position */
+  position: fixed;
+  /* Layout */
+  height: 100%;
+  text-align: center;
+}
+#wiser_timezone_container #wiser_timezone_cover {
+  display: none;
+}
+#wiser_timezone_container.force #wiser_timezone_cover {
+  /* Position */
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* Layout */
+  width: 100%;
+  height: 100%;
+  opacity: 0.95;
+  /* Background */
+  background-color: #222;
 }
 #wiser_timezone_container #wiser_timezone_space {
   /* Layout */
@@ -22,6 +44,19 @@
   border-bottom: 1px solid #ddd;
   /* Background */
   background: #f5f9ff;
+  box-shadow: 0 -1px 4px 0 rgba(0, 0, 0, 0.50);
+}
+#wiser_timezone_container.force #wiser_timezone_space {
+  /* Layout */
+  display: inline-block;
+  opacity: 0.85;
+  margin: 90px auto 0;
+  max-width: 330px;
+  padding: 35px 25px;
+  z-index: 2;
+  /* Font */
+  text-align: center;
+  font-size: 15px;
 }
 #wiser_timezone_container #wiser_timezone_space a {
   /* Font */

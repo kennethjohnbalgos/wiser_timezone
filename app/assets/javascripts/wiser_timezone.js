@@ -5,7 +5,8 @@ $(document).ready(function(){
 
 $(window).resize(function(){
   if($('#wiser_timezone_container').is(':visible')){
-    $('html').css('margin-top', $('#wiser_timezone_container').height() + 'px')
+    if(!$('#wiser_timezone_container').hasClass('force'))
+      $('html').css('margin-top', $('#wiser_timezone_container').height() + 'px')
   }
 })
 

@@ -59,12 +59,19 @@ Include the `wiser_timezone` stylesheet into your `app/assets/stylesheets/applic
 
 	*= require wiser_timezone
 
-### Layout
+### Initialize
 
 Render the `wiser_timezone_initialize` view below the `body` of your layout file:
 
 	<body>
 	  <%= wiser_timezone_initialize %>
+	  <!-- More Codes -->
+	</body>
+	
+You can use the `force` parameter to require the user to set the timezone before using the application. 
+
+	<body>
+	  <%= wiser_timezone_initialize(force: true) %>
 	  <!-- More Codes -->
 	</body>
 
