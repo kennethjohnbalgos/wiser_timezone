@@ -16,7 +16,7 @@ You can do normal gem installation for `wiser_timezone` from your terminal:
 
 or add this line in your Gemfile:
 
-    gem 'wiser_timezone', '~> 0.1.5'
+    gem 'wiser_timezone', '~> 0.1.6'
 
 Be sure to restart your application if it is already running.
 
@@ -67,15 +67,15 @@ Render the `wiser_timezone_initialize` view below the `body` of your layout file
 	  <%= wiser_timezone_initialize %>
 	  <!-- More Codes -->
 	</body>
-	
-You can use the `force` parameter to require the user to set the timezone before using the application. 
+
+You can use the `force` parameter to require the user to set the timezone before using the application.
 
 	<body>
 	  <%= wiser_timezone_initialize(force: true) %>
 	  <!-- More Codes -->
 	</body>
-	
-You can use the `auto_set_guest` parameter to automatically capture the timezone if the user is not logged in. In this way, the guest users will never be asked to set their timezone, the system timezone will automatically detected. 
+
+You can use the `auto_set_guest` parameter to automatically capture the timezone if the user is not logged in. In this way, the guest users will never be asked to set their timezone, the system timezone will automatically detected.
 
 	<body>
 	  <%= wiser_timezone_initialize(force: true, auto_set_guest: true) %>
