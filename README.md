@@ -16,7 +16,7 @@ You can do normal gem installation for `wiser_timezone` from your terminal:
 
 or add this line in your Gemfile:
 
-    gem 'wiser_timezone', '~> 0.1.4'
+    gem 'wiser_timezone', '~> 0.1.5'
 
 Be sure to restart your application if it is already running.
 
