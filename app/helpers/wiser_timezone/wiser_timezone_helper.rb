@@ -47,15 +47,18 @@ module WiserTimezone
     end
 
     def wiser_timezone_initialize(options = {})
+      force = options[:force].present? && options[:force]
+      auto_set_guest = options[:auto_set_guest].present? && options[:auto_set_guest] && !current_user.present?
+
       set_link = link_to('click here', set_timezone_path, :id => 'wiser_timezone_link')
       close_link = link_to('skip', set_timezone_path(offset: 'skip'), :id => 'wiser_timezone_close', :remote => true)
-      force = options[:force].present? && options[:force]
+
       if offset.present?
-        msg = "Your computer's timezone does not appear to match your current setting #{current_timezone_slim}, <span class='no_wrap'>#{set_link} to update the timezone to ~TZ~.</span>#{'<br/>' if force}Otherwise, #{close_link} setting your timezone."
+        msg = "Your system's timezone does not match your current setting #{current_timezone_slim}, <span class='no_wrap'>#{set_link} to update the timezone to ~TZ~.</span>#{'<br/>' if force}Otherwise, #{close_link} setting your timezone."
       else
         msg = "You do not have timezone in your settings, <span class='no_wrap'>#{set_link} to update the timezone to ~TZ~.</span>#{'<br/>' if force}Otherwise, #{close_link} setting your timezone."
       end
-      classes = "#{'force' if force}"
+      classes = "#{'force' if force} #{'no_user' if auto_set_guest}"
       space = "<div id='wiser_timezone_space' data-offset='#{offset}'>#{msg}</div>"
       cover = "<div id='wiser_timezone_cover'></div>"
       html = "<div id='wiser_timezone_container' class='#{classes}' style='display:none;' data-offset-cookie='#{cookies[:wiser_timezone_offset]}'>#{cover} #{space}</div>"
@@ -72,7 +75,11 @@ module WiserTimezone
           @timezone_offset = nil
         end
       elsif cookies[:wiser_timezone_offset].present?
-        @timezone_offset ||= cookies[:wiser_timezone_offset]
+        if cookies[:wiser_timezone_offset] == 'clear'
+          cookies[:wiser_timezone_offset] = nil
+        else
+          @timezone_offset ||= cookies[:wiser_timezone_offset]
+        end
       end
       return @timezone_offset
     end

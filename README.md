@@ -74,6 +74,13 @@ You can use the `force` parameter to require the user to set the timezone before
 	  <%= wiser_timezone_initialize(force: true) %>
 	  <!-- More Codes -->
 	</body>
+	
+You can use the `auto_set_guest` parameter to automatically capture the timezone if the user is not logged in. In this way, the guest users will never be asked to set their timezone, the system timezone will automatically detected. 
+
+	<body>
+	  <%= wiser_timezone_initialize(force: true, auto_set_guest: true) %>
+	  <!-- More Codes -->
+	</body>
 
 
 ## Usage

@@ -7,6 +7,8 @@ $(window).resize(function(){
   if($('#wiser_timezone_container').is(':visible')){
     if(!$('#wiser_timezone_container').hasClass('force'))
       $('html').css('margin-top', $('#wiser_timezone_container').height() + 'px')
+    if($('#wiser_timezone_container').hasClass('no_user'))
+      $('#wiser_timezone_container #wiser_timezone_link')[0].click()
   }
 })
 
