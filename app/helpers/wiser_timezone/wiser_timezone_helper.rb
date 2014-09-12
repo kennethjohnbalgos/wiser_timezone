@@ -48,7 +48,12 @@ module WiserTimezone
 
     def wiser_timezone_initialize(options = {})
       force = options[:force].present? && options[:force]
-      auto_set_guest = options[:auto_set_guest].present? && options[:auto_set_guest] && !current_user.present?
+      if auto_set_all = options[:auto_set_all].present? && options[:auto_set_all]
+        auto_set_all = true
+      else
+        auto_set_all = false
+        auto_set_guest = options[:auto_set_guest].present? && options[:auto_set_guest] && !current_user.present?
+      end
 
       set_link = link_to('click here', set_timezone_path, :id => 'wiser_timezone_link')
       close_link = link_to('skip', set_timezone_path(offset: 'skip'), :id => 'wiser_timezone_close', :remote => true)
@@ -58,7 +63,7 @@ module WiserTimezone
       else
         msg = "You do not have timezone in your settings, <span class='no_wrap'>#{set_link}</span> to update the timezone to ~TZ~.#{'<br/>' if force}Otherwise, #{close_link} setting your timezone."
       end
-      classes = "#{'force' if force} #{'no_user' if auto_set_guest}"
+      classes = "#{'force' if force} #{'no_user' if auto_set_guest} #{'auto_set' if auto_set_all}"
       space = "<div id='wiser_timezone_space' data-offset='#{offset}'>#{msg}</div>"
       cover = "<div id='wiser_timezone_cover'></div>"
       html = "<div id='wiser_timezone_container' class='#{classes}' style='display:none;' data-offset-cookie='#{cookies[:wiser_timezone_offset]}'>#{cover} #{space}</div>"

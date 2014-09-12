@@ -1,10 +1,5 @@
 $(document).ready(function(){
-  if($('#wiser_timezone_container').hasClass('no_user')){
-    $('#wiser_timezone_container #wiser_timezone_link')[0].click()
-  }else{
-    wiser_timezone_reload();
-  }
-  $(window).resize()
+  wiser_timezone_reload();
 });
 
 $(window).resize(function(){
@@ -42,4 +37,14 @@ var wiser_timezone_reload = function(){
       }
     }
   }
+  if($('#wiser_timezone_container').hasClass('auto_set')){
+    $('#wiser_timezone_container #wiser_timezone_link')[0].click()
+    $('#wiser_timezone_container').remove()
+    $('html').css('margin-top', '0px')
+  }else if($('#wiser_timezone_container').hasClass('no_user')){
+    $('#wiser_timezone_container #wiser_timezone_link')[0].click()
+    $('#wiser_timezone_container').remove()
+    $('html').css('margin-top', '0px')
+  }
+  $(window).resize()
 }
