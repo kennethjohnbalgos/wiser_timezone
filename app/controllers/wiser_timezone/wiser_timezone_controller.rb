@@ -26,7 +26,7 @@ module WiserTimezone
           end
         end
       end
-      redirect_to root_path
+      redirect_to :back
     end
   end
 end
