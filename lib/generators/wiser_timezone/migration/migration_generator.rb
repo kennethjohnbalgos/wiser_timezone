@@ -10,7 +10,7 @@ module WiserTimezone
       argument :name, :type => :string, :default => 'add_wiser_timezone_field'
       # Create migration in project's folder
       def generate_files
-        migration_template 'migration.rb', "db/migrate/#{name}"
+        migration_template 'migration.rb', "db/migrate/#{name}.rb"
       end
     end
   end

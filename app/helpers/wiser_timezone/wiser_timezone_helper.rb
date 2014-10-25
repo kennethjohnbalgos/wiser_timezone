@@ -52,7 +52,7 @@ module WiserTimezone
         auto_set_all = true
       else
         auto_set_all = false
-        auto_set_guest = options[:auto_set_guest].present? && options[:auto_set_guest] && !current_user.present?
+        auto_set_guest = options[:auto_set_guest].present? && options[:auto_set_guest]
       end
 
       set_link = link_to('click here', set_timezone_path, :id => 'wiser_timezone_link')
